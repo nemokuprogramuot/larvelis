@@ -2,6 +2,11 @@
 
 use Illuminate\Http\Request;
 
+
+//Route :: get('/', function () {
+//    return view('welcome');
+//});
+
 define('LARAVEL_START', microtime(true));
 
 // Determine if the application is in maintenance mode...
