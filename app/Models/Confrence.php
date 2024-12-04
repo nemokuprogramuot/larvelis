@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Confrence extends Model
 {
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title','text', 'date','adress','participant_number'];
     use HasFactory;
 }
+
