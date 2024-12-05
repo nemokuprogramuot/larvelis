@@ -1,67 +1,24 @@
 <?php
 
+use App\Http\Controllers\ConferenceController;
 use Illuminate\Support\Facades\Route;
-$posts = [
-    1 =>[
-    'title' => 'Post 1',
-    'content'=> 'This is the post 1',
-    'is_new' => 'true',
-    'authors' =>[
-        1=> [
-            'name' => 'John',
-            'surname' => 'Doe'
-        ],
-    ],
-        ],
-    2 => [
-        'title' => 'Post 2',
-        'content'=> 'This is the post 2',
-        'is_new' => 'false',
-        'authors' =>[
-            1 => [
-                'name' => 'Joe',
-                'surname' => 'Biden'
 
-            ],
-    ],
-        ],
-];
-Route::get('/', static function () {
-    return view('home.index',[]);
-})->name('home.index');
 
-Route::get('/contact', static function () {
-    return view('home.contact',[]);
-})->name('home.contact');
-
-$variable = "";
-Route::get('/publications', function () use ($variable){
-    $variable = "aaaaaaa";
-    return $variable;
+Route::middleware('auth')->group(function () {
+Route::get('/',[ConferenceController::class, 'index']) -> name('home.index');
+Route::get('/conference/{id}', [ConferenceController::class, 'view'])->name('home.view');
+Route::get('/create', [ConferenceController::class, 'create'])->name('home.create');
+Route::get('/conference/{id}/edit', [ConferenceController::class, 'edit'])->name('home.edit');
+Route::post('/', [ConferenceController::class, 'store'])->name('home.store');
+Route::put('/conference/{id}/edit', [ConferenceController::class, 'update'])->name('home.update');
+Route::delete('/conference/{id}', [ConferenceController::class, 'destroy'])->name('home.destroy');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 });
 
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
