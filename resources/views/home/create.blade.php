@@ -60,11 +60,11 @@
                     </div>
 
                     <button type="submit" class="btn">Create</button>
-
-                    <!-- validation errors -->
+                    <a href="{{ route('home.index') }}" class="btn btn-secondary">Back to List</a>
 
                 </form>
             </div>
         </div>
+
     </div>
 @endsection

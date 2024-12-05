@@ -9,7 +9,10 @@
 <body>
 <header class="navbar">
 
-        <a href="#" class="btn btn-link">LogOut</a>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
         <a href="{{ route('home.create') }}" class="btn btn-link">Create</a>
 
 </header>
