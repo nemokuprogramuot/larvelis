@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conference Center</title>
-
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+<header class="navbar">
 
-<header>
-    <nav>
-        <h1>Ninja Network</h1>
-       <a>LogOut</a>
-        <a>Create</a>
+        <a href="#" class="btn btn-link">LogOut</a>
+        <a href="{{ route('home.create') }}" class="btn btn-link">Create</a>
 
-    </nav>
 </header>
 
 <main class="container">
