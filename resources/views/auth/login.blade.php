@@ -4,42 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prisijungimas</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
 <h1>Prisijungimas</h1>
 <form method="POST" action="{{ route('login') }}">
-    @csrf <!-- Laravel CSRF apsauga -->
-
-    <!-- El. pašto laukas -->
+    @csrf
+<div class="form-group">
     <div>
         <label for="email">El. paštas:</label>
-        <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-        <!-- Klaidos pranešimas -->
-        @error('email')
-        <div>{{ $message }}</div>
-        @enderror
-    </div>
+        <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-input" required>
 
-    <!-- Slaptažodžio laukas -->
+    </div>
     <div>
         <label for="password">Slaptažodis:</label>
-        <input type="password" id="password" name="password" required>
-        <!-- Klaidos pranešimas -->
-        @error('password')
-        <div>{{ $message }}</div>
-        @enderror
+        <input type="password" id="password" name="password" class="form-input" required>
     </div>
 
-    <!-- "Prisiminti mane" checkbox -->
     <div>
-        <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-        <label for="remember">Prisiminti mane</label>
+        <button type="submit" class="btn" >Prisijungti</button>
     </div>
-
-    <!-- Prisijungimo mygtukas -->
-    <div>
-        <button type="submit">Prisijungti</button>
-    </div>
+</div>
 </form>
 </body>
 </html>

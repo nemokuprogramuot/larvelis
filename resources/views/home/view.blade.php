@@ -13,7 +13,7 @@
                 <p><strong>Address:</strong> {{ $confrence->adress }}</p>
                 <p><strong>Participants:</strong> {{ $confrence->participant_number }}</p>
             </div>
-            <div class="card-footer">
+            <div class="card-foo ter">
 
 
                 <form action="{{ route('home.destroy', $confrence) }}" method="POST">
