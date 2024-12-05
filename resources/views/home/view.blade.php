@@ -14,8 +14,15 @@
                 <p><strong>Participants:</strong> {{ $confrence->participant_number }}</p>
             </div>
             <div class="card-footer">
-                <a href="{{ route('home.index') }}" class="btn btn-secondary">Back to List</a>
+
+
+                <form action="{{ route('home.destroy', $confrence) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn" style="background-color: red; color: white;">Delete</button>
+                </form>
             </div>
+            <a href="{{ route('home.index') }}" class="btn btn-secondary">Back to List</a>
         </div>
     </div>
 @endsection

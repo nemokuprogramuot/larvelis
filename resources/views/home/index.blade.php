@@ -19,6 +19,7 @@
                         </div>
                         <div class="card-footer">
                             <a href="{{ route('home.view', $confrence->id) }}" class="btn btn-primary btn-block">View</a>
+                            <a href="{{ route('home.edit', $confrence->id) }}" class="btn btn-primary btn-block">Edit</a>
                         </div>
                     </div>
                 </div>

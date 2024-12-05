@@ -33,4 +33,32 @@ class ConferenceController extends Controller
         return redirect()->route('home.index');
     }
 
+    public function edit($id)
+    {
+        $confrence = Confrence::findOrFail($id);
+        return view('home.edit', ['confrence' => $confrence]);
+    }
+
+    public function update(Request $request, $id) {
+
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'text' => 'required|max:1000',
+            'date' => 'required',
+            'adress' => 'required|max:255',
+            'participant_number' => 'required|min:0',
+        ]);
+        $confrence = Confrence::findOrFail($id);
+        $confrence->update($request->all());
+        return redirect()->route('home.index');
+    }
+
+    public function destroy($id) {
+        $confrence = Confrence::findOrFail($id);
+        $confrence->delete();
+
+        return redirect()->route('home.index');
+    }
+
+
 }
